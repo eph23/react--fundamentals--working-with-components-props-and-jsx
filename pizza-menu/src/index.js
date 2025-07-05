@@ -106,6 +106,10 @@ function Menu() {
 
 function Pizza(props) {
     console.log(props);
+
+    if (props.pizzaObj.soldOut) {
+        return null;
+    }
     return (
         <li className="pizza">
             <img src={props.pizzaObj.photoName} alt={props.name} />
@@ -131,6 +135,15 @@ function Footer() {
     } else {
         alert("Sorry! We are closed!");
     } */
+
+    // if (!isOpen) {
+    //     return (
+    //         <p>
+    //             We are happy to welcome you between {openHour}:00 and{" "}
+    //             {closeHour}:00
+    //         </p>
+    //     );
+    // }
 
     return (
         <footer className="footer">
