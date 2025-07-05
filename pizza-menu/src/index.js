@@ -125,6 +125,8 @@ function Pizza(props) {
 function Footer() {
     // return React.createElement("footer", null, "We are currently open!");
     const hour = new Date().getHours();
+    // const hour = 13;
+
     const openHour = 12;
     const closeHour = 22;
     const isOpen = hour >= openHour && hour <= closeHour;
@@ -148,10 +150,7 @@ function Footer() {
     return (
         <footer className="footer">
             {isOpen ? (
-                <div className="order">
-                    <p>We are open until {closeHour}:00</p>
-                    <button className="btn">Order</button>
-                </div>
+                <Order closeHours={closeHour} />
             ) : (
                 <p>
                     We are happy to welcome you between {openHour}:00 and{" "}
@@ -159,6 +158,15 @@ function Footer() {
                 </p>
             )}
         </footer>
+    );
+}
+
+function Order(props) {
+    return (
+        <div className="order">
+            <p>We are open until {props.closeHours}:00</p>
+            <button className="btn">Order</button>
+        </div>
     );
 }
 
